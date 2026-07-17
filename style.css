@@ -192,3 +192,212 @@ section{
     background:#1d1d2d;
 
 }
+/* ==========================================
+   ENVELOPE SECTION
+========================================== */
+
+.letter-section{
+
+    min-height:100vh;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+.envelope{
+
+    position:relative;
+
+    width:340px;
+
+    height:230px;
+
+    cursor:pointer;
+
+    transition:.5s;
+
+}
+
+/* Bottom Envelope */
+
+.envelope::before{
+
+    content:"";
+
+    position:absolute;
+
+    bottom:0;
+
+    width:100%;
+
+    height:100%;
+
+    background:#d18d4f;
+
+    border-radius:8px;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.4);
+
+}
+
+/* Top Flap */
+
+.flap{
+
+    position:absolute;
+
+    top:0;
+
+    width:100%;
+    height:120px;
+
+    background:#e4a160;
+
+    clip-path:polygon(0 0,100% 0,50% 100%);
+
+    transform-origin:top;
+
+    transition:1s;
+
+    z-index:5;
+
+}
+
+/* Letter */
+
+.letter{
+
+    position:absolute;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    bottom:10px;
+
+    width:88%;
+
+    height:180px;
+
+    background:#fff8ec;
+
+    color:#4b3a2a;
+
+    border-radius:10px;
+
+    padding:25px;
+
+    overflow-y:auto;
+
+    transition:1s;
+
+    z-index:2;
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,.25);
+
+}
+
+.letter h2{
+
+    color:#ff944d;
+
+    margin-bottom:15px;
+
+    text-align:center;
+
+}
+
+.letter p{
+
+    font-size:20px;
+
+    line-height:1.8;
+
+}
+
+/* Open Animation */
+
+.envelope.open .flap{
+
+    transform:rotateX(180deg);
+
+}
+
+.envelope.open .letter{
+
+    bottom:130px;
+
+}
+
+/* Hover */
+
+.envelope:hover{
+
+    transform:translateY(-8px);
+
+}
+
+/* Click text */
+
+.click-text{
+
+    margin-top:35px;
+
+    color:#d9c7ff;
+
+    letter-spacing:3px;
+
+    font-size:20px;
+
+}
+
+/* ==========================================
+   PARCHMENT LOOK
+========================================== */
+
+.letter{
+
+    background:
+
+    linear-gradient(
+        rgba(255,255,255,.65),
+        rgba(255,248,235,.95)
+    ),
+
+    repeating-linear-gradient(
+
+        0deg,
+
+        rgba(180,140,80,.04),
+
+        rgba(180,140,80,.04) 2px,
+
+        transparent 2px,
+
+        transparent 8px
+
+    );
+
+}
+
+/* ==========================================
+   GLOW
+========================================== */
+
+.envelope:hover::before{
+
+    box-shadow:
+
+        0 0 30px rgba(255,145,50,.45),
+
+        0 0 60px rgba(176,132,255,.25);
+
+}
